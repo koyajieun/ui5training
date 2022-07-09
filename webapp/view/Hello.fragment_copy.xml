@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog"
+      title="Hello">
+      <beginButton>
+        <Button text = "닫기" press = "onCloseDialog" />
+      </beginButton>
+   </Dialog>
+</core:FragmentDefinition>

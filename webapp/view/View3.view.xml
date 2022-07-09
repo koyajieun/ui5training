@@ -1,0 +1,134 @@
+<mvc:View controllerName="sap.sync.ui5training.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns:core="sap.ui.core"
+    xmlns:ui="sap.ui.table" xmlns:f="sap.f" xmlns:layout="sap.ui.layout"
+    xmlns="sap.m">
+    	<f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="주문 조회"/>
+					</f:heading>
+					
+					<f:expandedContent>
+						<Label text="This is a subheading"/>
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label text="This is a subheading"/>
+					</f:snappedContent>
+					<f:snappedTitleOnMobile>
+						<Title text="This is a subheading"/>
+					</f:snappedTitleOnMobile>
+					<f:content>
+						<OverflowToolbar>
+							
+						</OverflowToolbar>
+					</f:content>
+					<f:actions>
+						<Button
+								text="Edit"
+								type="Emphasized"
+								press="toggleAreaPriority"/>
+						<Button
+								text="Delete"
+								type="Transparent"/>
+						
+					</f:actions>
+					<f:navigationActions>
+						<Button
+								icon="sap-icon://full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://exit-full-screen"
+								type="Transparent" />
+						<Button
+								icon="sap-icon://decline"
+								type="Transparent" />
+					</f:navigationActions>
+				</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header>
+				<f:DynamicPageHeader pinnable="true">
+					<layout:HorizontalLayout allowWrapping="true">
+						<layout:VerticalLayout class="sapUiMediumMarginEnd">
+							<ObjectAttribute title="Location" text="Warehouse A"/>
+							<ObjectAttribute title="Halway" text="23L"/>
+							<ObjectAttribute title="Rack" text="34"/>
+						</layout:VerticalLayout>
+
+						<layout:VerticalLayout>
+							<ObjectAttribute title="Availability"/>
+							<ObjectStatus text="In Stock" state="Success" />
+						</layout:VerticalLayout>
+					</layout:HorizontalLayout>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table id="table"
+                class="sapFDynamicPageAlignContent"
+		           
+		            items="{
+		            	path: '/orders',
+		            	sorter: 'orderNum'
+		            }"
+                    >
+		<headerToolbar>
+            <OverflowToolbar>
+                <content>
+                    <Title text = "주문내역" level = "H2"/>
+                    <ToolbarSpacer />
+                    <Input id = "searchInput" width = "5rem"  value= "{/searchValue}" submit = "onSearch"/>
+                    <Button  text = "검색" press = "onSearch" />
+                    <Button text="테이블 세팅" press="onViewSetting"/>
+                </content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<infoToolbar>
+			<OverflowToolbar>
+			</OverflowToolbar>
+		</infoToolbar>
+		<columns>
+            <Column
+                minScreenWidth="Tablet" 
+				width="5rem"
+				demandPopin="true">
+				<Text text="주문번호" />
+            </Column>
+			<Column
+                minScreenWidth="Tablet" 
+				width="5rem"
+				demandPopin="true">
+				<Text text="상품명" />
+			</Column>
+			<Column
+				width="5rem">
+				<Text text="가격" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem id = "cl" type = "Navigation" selected ="false" press= "onPressItem" vAlign = "Middle">
+				<cells>
+                <Text text="{orderNum}" />
+                <Text text="{product}" />
+                <Text text="{price}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+			</f:content>
+			<!-- DynamicPage Footer -->
+			<f:footer>
+				<OverflowToolbar>
+					<Button icon="sap-icon://message-popup"
+							text="{/messagesLength}"
+							type="Emphasized"
+							press="onMessageButtonPress"
+							visible="{= !!${/messagesLength}}"/>
+					<ToolbarSpacer/>
+					<Button type="Accept" text="Accept"/>
+					<Button type="Reject" text="Reject"/>
+				</OverflowToolbar>
+			</f:footer>
+		</f:DynamicPage>
+</mvc:View>
