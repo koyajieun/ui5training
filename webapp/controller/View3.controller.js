@@ -87,7 +87,7 @@ sap.ui.define([ // (1) 라이브러리를 컨트롤러에서 사용할 때 종�
             var sOrderNum = oRowData.orderNum;
 
             var oParam = {
-                orders : sOrderNum
+                order : sOrderNum
             };
             
             // ...이거 보여주는거

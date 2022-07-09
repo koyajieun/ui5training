@@ -230,15 +230,15 @@
 								<core:Title text="연락처" />
 
 								<Label text="회사"/>
-								<Text text="{/customer/contract}" />
+								<Text text="{/customers/contract}" />
 
 								<core:Title text="주소" />
 
 								<Label text="기본주소" />
-								<Text text="{/customer/address}" />
+								<Text text="{/customers/address}" />
 
 								<Label text="우편번호"/>
-								<Text text="{/customer/email}" />
+								<Text text="{/customers/email}" />
 
 								<core:Title text="이메일" />
 
